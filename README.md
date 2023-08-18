@@ -4,7 +4,7 @@
     <a>
         <img alt="Sphere" src="https://avatars.githubusercontent.com/u/109333730?s=200&v=4" width="100"/>
     </a>
-  <h1 style="margin-top:20px;">Sphere React</h1>
+  <h1 style="margin-top:20px;">examples</h1>
 
   <p>
     <a href="/"><img alt="Docs" src="https://img.shields.io/badge/docs-tutorials-aquamarine" /></a>
