@@ -13,10 +13,9 @@
   </p>
 </div>
 
-
 # Overview
 
-This repository contains a collection of technical examples using Sphere's APIs and SDKs.  
+This repository contains a collection of technical examples using Sphere's APIs and SDKs.
 
 # Examples
 

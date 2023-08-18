@@ -9,73 +9,73 @@ import { VersionedTransaction } from "@solana/web3.js";
 
 export const styles = {
   main: "flex min-h-screen flex-col gap-y-4 p-24 items-center",
-  button: "items-center w-[350px] bg-indigo-600 px-4 py-3 text-center text-sm font-semibold inline-block text-white cursor-pointer uppercase transition duration-200 ease-in-out rounded-lg hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 active:scale-95",
+  button:
+    "items-center w-[350px] bg-indigo-600 px-4 py-3 text-center text-sm font-semibold inline-block text-white cursor-pointer uppercase transition duration-200 ease-in-out rounded-lg hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 active:scale-95",
   input: "border-[2px] border-[#E4EBFF] rounded-md",
-  subtotal: "text-[#0F2A43]"
-}
+  subtotal: "text-[#0F2A43]",
+};
 
-const paymentLinkId = "paymentLink_85367c449c704fff9189785ab9627a61"
+const paymentLinkId = "paymentLink_85367c449c704fff9189785ab9627a61";
 
 export default function Home() {
-  
-  const {connection} = useConnection()
-  const {connected, publicKey, sendTransaction} = useWallet()
-  
-  const [paymentLink, setPaymentLink] = useState<any>(null)
-  const [message, setMessage] = useState("Pay")
+  const { connection } = useConnection();
+  const { connected, publicKey, sendTransaction } = useWallet();
+
+  const [paymentLink, setPaymentLink] = useState<any>(null);
+  const [message, setMessage] = useState("Pay");
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       const response = await axios.get(
-        `https://api.spherepay.co/v1/public/paymentLink/${paymentLinkId}`
-      )
-      setPaymentLink(response.data.data.paymentLink)
-    })()
-  }, [])
+        `https://api.spherepay.co/v1/public/paymentLink/${paymentLinkId}`,
+      );
+      setPaymentLink(response.data.data.paymentLink);
+    })();
+  }, []);
 
-  
-  const pay = async() => {
-    
-    if (!publicKey) throw Error("wallet not connected")
-    if (!paymentLink) throw Error("payment link not loaded")
+  const pay = async () => {
+    if (!publicKey) throw Error("wallet not connected");
+    if (!paymentLink) throw Error("payment link not loaded");
 
-    setMessage("Processing...")
+    setMessage("Processing...");
     const query = paymentLink.lineItems.map((lineItem: any) => {
       return {
         id: lineItem.id,
         quantity: +lineItem.quantity,
-      }
-    })
+      };
+    });
     const response = await axios.post(
-      `https://api.spherepay.co/v1/public/paymentLink/pay/${paymentLinkId}?${qs.stringify({
-        lineItems: JSON.stringify(query)
-      })}`,
+      `https://api.spherepay.co/v1/public/paymentLink/pay/${paymentLinkId}?${qs.stringify(
+        {
+          lineItems: JSON.stringify(query),
+        },
+      )}`,
       {
         account: publicKey.toBase58(),
       },
       {
         headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    )
-    const txBuf = Buffer.from(response.data.transaction, "base64")
+          "Content-Type": "application/json",
+        },
+      },
+    );
+    const txBuf = Buffer.from(response.data.transaction, "base64");
     const tx = VersionedTransaction.deserialize(txBuf);
     const txId = await sendTransaction(tx, connection);
-    
-    setMessage("Confirming...")
+
+    setMessage("Confirming...");
     const confirmation = await connection.confirmTransaction(txId, "confirmed");
     if (confirmation.value.err) {
-      setMessage(`Error`)
-      return
+      setMessage(`Error`);
+      return;
     }
-    setMessage(`Success`)
-  }
+    setMessage(`Success`);
+  };
 
   if (!connected) {
     return (
       <main className={styles.main}>
-        <WalletMultiButton className={styles.button}/>
+        <WalletMultiButton className={styles.button} />
       </main>
     );
   }
