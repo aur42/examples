@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API_URL = "https://api.spherepay.co/v1"
-const API_KEY = "secret_5e3a7370b4b14c0c8bda4b1784307bf2"
+const API_KEY = "<YOUR_API_KEY>"
 const config = {
     headers: {
         "Authorization": `Bearer ${API_KEY}`
