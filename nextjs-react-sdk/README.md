@@ -4,12 +4,14 @@
     <a>
         <img alt="Sphere" src="https://avatars.githubusercontent.com/u/109333730?s=200&v=4" width="95"/>
     </a>
-  <h1 style="margin-top:20px;">nextjs-react-custom</h1>
+  <h1 style="margin-top:20px;">nextjs-react-sdk</h1>
 </div>
 
 # Overview
 
-This repository contains an example Nextjs app, demonstrating how to natively embed a Sphere payment button into your web app. 
+This repository contains an example Nextjs app, demonstrating how to use the `@spherelabs/react` sdk to orchestrate payments via a series of easy to use react hooks.
+
+how to natively embed a Sphere payment button into your web app. 
 
 This repository will be useful to you if you:
 

@@ -24,7 +24,6 @@ export default function Home() {
   const [paymentLink, setPaymentLink] = useState<any>(null)
   const [message, setMessage] = useState("Pay")
 
-  // Retrieve payment link on component mount
   useEffect(() => {
     (async() => {
       const response = await axios.get(
@@ -34,7 +33,7 @@ export default function Home() {
     })()
   }, [])
 
-  // Pay the paymentLink
+  
   const pay = async() => {
     
     if (!publicKey) throw Error("wallet not connected")

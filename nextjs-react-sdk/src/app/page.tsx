@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useSphere } from "@spherelabs/react";
-import { WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { useState } from "react";
 
 export const styles = {
   main: "flex min-h-screen flex-col gap-y-4 p-24 items-center",
@@ -13,12 +11,15 @@ export const styles = {
   subtotal: "text-[#0F2A43]"
 }
 
-
 export default function Home() {
-  const { connected } = useWallet()
+  
+  // Initialize the Sphere hook.
   const { setLineItemQuantity, lineItems, pay, subtotal, discount } =
     useSphere();
 
+  const { connected } = useWallet()
+
+  // Check if the wallet is connection.
   if (!connected || !lineItems) {
     return (
       <main className={styles.main}>
@@ -30,23 +31,29 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.subtotal}>
+        {/* Displays the total tax of the payment*/}
         Tax: {subtotal?.totalTaxFormatted}
       </div>
       <div className={styles.subtotal}>
+        {/* Displays the total fees of the payment*/}
        Fees : {subtotal?.totalFeeFormatted}
       </div>
       <div className={styles.subtotal}>
+        {/* Displays the total cost of the payment*/}
         Total: {subtotal?.rawAmountWithTaxAndFeesFormatted} {lineItems[0].price.currency}
       </div>
       <div className={styles.subtotal}>
+        {/* Displays whether or not the current use has an NFT discount*/}
         NFT Discount: {discount?.nft ? JSON.stringify(discount.nft) : "None"}
       </div>
       <input className={styles.input} onChange={(e) => {
+        // Sets new line item quantities when the input changes.
         setLineItemQuantity(parseInt(e.target.value), lineItems[0].id);
       }}>
       </input>
       <button
         onClick={async () => {
+          // Pay the paymentLink for the lineItems specified in the useSphere hook.
           const txId = await pay();
           console.log(txId);
         }}

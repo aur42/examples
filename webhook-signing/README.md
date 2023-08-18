@@ -9,7 +9,7 @@
 
 # Overview
 
-This repository contains an example express server demonstrating `hmac` signature verification of webhook payloads.
+This repository contains an example express server demonstrating `hmac` signature verification of Sphere webhook event payloads.
 
 # Installation
 
@@ -21,7 +21,7 @@ yarn
 
 # Setup
 
-1. Create a webhook using the Sphere API or through the dashboard. 
+1. Create a webhook using the Sphere API or through the dashboard.
 2. Export your webhook's signingSecret or `secret` to:
 
 ```bash
@@ -35,4 +35,3 @@ To start the server on port :8080 run:
 ```bash
 yarn run dev
 ```
-
