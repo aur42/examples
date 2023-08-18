@@ -13,13 +13,11 @@ export const styles = {
 
 export default function Home() {
   
-  // Initialize the Sphere hook.
   const { setLineItemQuantity, lineItems, pay, subtotal, discount } =
     useSphere();
 
   const { connected } = useWallet()
 
-  // Check if the wallet is connection.
   if (!connected || !lineItems) {
     return (
       <main className={styles.main}>
@@ -31,29 +29,23 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.subtotal}>
-        {/* Displays the total tax of the payment*/}
         Tax: {subtotal?.totalTaxFormatted}
       </div>
       <div className={styles.subtotal}>
-        {/* Displays the total fees of the payment*/}
        Fees : {subtotal?.totalFeeFormatted}
       </div>
       <div className={styles.subtotal}>
-        {/* Displays the total cost of the payment*/}
         Total: {subtotal?.rawAmountWithTaxAndFeesFormatted} {lineItems[0].price.currency}
       </div>
       <div className={styles.subtotal}>
-        {/* Displays whether or not the current use has an NFT discount*/}
         NFT Discount: {discount?.nft ? JSON.stringify(discount.nft) : "None"}
       </div>
       <input className={styles.input} onChange={(e) => {
-        // Sets new line item quantities when the input changes.
         setLineItemQuantity(parseInt(e.target.value), lineItems[0].id);
       }}>
       </input>
       <button
         onClick={async () => {
-          // Pay the paymentLink for the lineItems specified in the useSphere hook.
           const txId = await pay();
           console.log(txId);
         }}
