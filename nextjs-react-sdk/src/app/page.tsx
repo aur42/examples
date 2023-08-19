@@ -44,7 +44,7 @@ export default function Home() {
         onChange={(e) => {
           setLineItemQuantity(parseInt(e.target.value), lineItems[0].id);
         }}
-      ></input>
+      />
       <button
         onClick={async () => {
           const txId = await pay();
