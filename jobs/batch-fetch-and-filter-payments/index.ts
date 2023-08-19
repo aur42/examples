@@ -39,7 +39,7 @@ const filterPaymentsByProductIds = (payments, productIds) => {
 
 const runJob = async () => {
   const payments = await batchFetchPayments();
-  const productIds = [ process.env.PRODUCT_ID ];
+  const productIds = [process.env.PRODUCT_ID];
   const filteredPayments = filterPaymentsByProductIds(payments, productIds);
   console.log(`Total Payments: ${payments.length}`);
   console.log(`Filtered Payments: ${filteredPayments.length}`);
