@@ -11,10 +11,6 @@
 
 The following directory contains a collection of commonly requested jobs scripts.
 
-As a general principle, it is better to propagate your Sphere `Events` via `Webhooks`.
-
-If however you want to forego this, these jobs scripts will show you how to use your Sphere application as your primary db.
-
 # Jobs
 
 1. `batch-fetch-and-filter-payments` - A batch job to fetch and filter payments by productIds.
