@@ -19,6 +19,7 @@ This repository contains a collection of technical examples using Sphere's APIs 
 
 # Examples
 
-1. `nextjs-react-custom` - Natively embed a Sphere payment button into your web app.
-2. `nextjs-react-sdk` - Use the `@spherelabs/react` sdk to orchestrate payments via a series of easy to use react hooks.
-3. `webhook-signing` - Verify Sphere webhook event payloads via `hmac` signature verification.
+1. `jobs` - A collection of commonly requested job scripts.
+2. `nextjs-react-custom` - Natively embed a Sphere payment button into your web app.
+3. `nextjs-react-sdk` - Use the `@spherelabs/react` sdk to orchestrate payments via a series of easy to use react hooks.
+4. `webhook-signing` - Verify Sphere webhook event payloads via `hmac` signature verification.
