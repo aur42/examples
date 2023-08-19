@@ -9,7 +9,7 @@
 
 # Overview
 
-This repository contains an example job that fetches and filters your `Payments` by `Products`. 
+This repository contains an example job that fetches and filters your `Payments` by `Products`.
 
 # Installation
 
@@ -35,7 +35,7 @@ export PRODUCT_ID="secret_adg5186sad88bba6d35186dsg5c
 
 # Run
 
-To run the script: 
+To run the script:
 
 ```bash
 yarn run dev
