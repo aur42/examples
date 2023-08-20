@@ -9,9 +9,9 @@
 
 # Overview
 
-This repository contains an example script demonstrating basic Subscription orchestration. 
+This repository contains an example script demonstrating basic Subscription orchestration.
 
-In particular we demonstrate, how you as a merchant would pause and resume a single subscription. 
+In particular we demonstrate, how you as a merchant would pause and resume a single subscription.
 
 # Installation
 
@@ -29,7 +29,7 @@ yarn
 export API_KEY="secret_8b45ae882301488bba6d351863a0555c"
 ```
 
-2. Retrieve the id of the subscription that you would like to pause/resume and set it as an environment variable. 
+2. Retrieve the id of the subscription that you would like to pause/resume and set it as an environment variable.
 
 ```bash
 export SUBSCRIPTION_ID="subscription_adg5186sad88bba6d35186dsg5c
