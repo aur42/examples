@@ -9,7 +9,7 @@ const resumeSubscription = async (subscriptionId: string) => {
   const response = await axios.post(
     `${API_URL}/subscription/${subscriptionId}`,
     {
-      status: "paused",
+      status: "active",
     },
     config,
   );
@@ -21,7 +21,7 @@ const pauseSubscription = async (subscriptionId: string) => {
   const response = await axios.post(
     `${API_URL}/subscription/${subscriptionId}`,
     {
-      status: "active",
+      status: "paused",
     },
     config,
   );
