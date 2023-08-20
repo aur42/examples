@@ -4,12 +4,14 @@
     <a>
         <img alt="Sphere" src="https://avatars.githubusercontent.com/u/109333730?s=200&v=4" width="95"/>
     </a>
-  <h1 style="margin-top:20px;">webhook-signing</h1>
+  <h1 style="margin-top:20px;">resume-pause</h1>
 </div>
 
 # Overview
 
-This repository contains an example job that fetches and filters your `Payments` by `Products`.
+This repository contains an example script demonstrating basic Subscription orchestration. 
+
+In particular we demonstrate, how you as a merchant would pause and resume a single subscription. 
 
 # Installation
 
@@ -27,10 +29,10 @@ yarn
 export API_KEY="secret_8b45ae882301488bba6d351863a0555c"
 ```
 
-2. Set the product id that you want to filter by:
+2. Retrieve the id of the subscription that you would like to pause/resume and set it as an environment variable. 
 
 ```bash
-export PRODUCT_ID="product_adg5186sad88bba6d35186dsg5c
+export SUBSCRIPTION_ID="subscription_adg5186sad88bba6d35186dsg5c
 ```
 
 # Run
