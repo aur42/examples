@@ -8,7 +8,7 @@ const batchFetchPayments = async () => {
   let endDate = null; // cursor
 
   while (!done) {
-    // Fetch the next 100 payments
+    // Fetch the next 150 payments
     const response = await axios.get(
       `https://api.spherepay.co/v1/payment?limit=150${
         endDate ? `&endDate=${endDate}` : ""
