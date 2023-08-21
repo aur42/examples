@@ -41,7 +41,7 @@ const createPrice = async (productId: string) => {
   return price;
 };
 
-const createPaymentLink = async(priceId: string) => {
+const createPaymentLink = async (priceId: string) => {
   const response = await axios.post(
     `${API_URL}/paymentLink`,
     {
@@ -50,19 +50,18 @@ const createPaymentLink = async(priceId: string) => {
           price: priceId,
           quantity: 1,
           quantityMutable: false,
-        }
-      ]
+        },
+      ],
     },
     config,
-  )
+  );
   const paymentLink = response.data.data.paymentLink;
-  return paymentLink
-}
+  return paymentLink;
+};
 
 (async () => {
-  
-  const product = await createProduct()
-  const price = await createPrice(product.id)
-  const paymentLink = await createPaymentLink(price.id)
-  console.log("paymentLink", paymentLink.url)
+  const product = await createProduct();
+  const price = await createPrice(product.id);
+  const paymentLink = await createPaymentLink(price.id);
+  console.log("paymentLink", paymentLink.url);
 })();

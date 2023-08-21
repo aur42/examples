@@ -9,8 +9,8 @@
 
 # Overview
 
-This repository contains an example script demonstrating how to create a paymentLink for a product with a 
-simple `recurring` price. 
+This repository contains an example script demonstrating how to create a paymentLink for a product with a
+simple `recurring` price.
 
 # Installation
 
