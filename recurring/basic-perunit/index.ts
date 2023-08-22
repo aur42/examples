@@ -8,7 +8,7 @@ const createProduct = async () => {
   const response = await axios.post(
     `${API_URL}/product`,
     {
-      name: "Basic Flat Subscription Product",
+      name: "Basic PerUnit Subscription Product",
     },
     config,
   );
@@ -48,7 +48,7 @@ const createPaymentLink = async (priceId: string) => {
         {
           price: priceId,
           quantity: 1,
-          quantityMutable: false,
+          quantityMutable: true,
         },
       ],
     },
