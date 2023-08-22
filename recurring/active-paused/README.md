@@ -43,6 +43,6 @@ To run the script:
 yarn run dev
 ```
 
-Observe that if your subscription is active, it will become paused. 
+Observe that if your subscription is active, it will become paused.
 
 Running the script again update the subscriptions status from "paused" to "active".
