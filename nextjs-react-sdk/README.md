@@ -43,7 +43,7 @@ To start the server on port :3000 run:
 yarn run dev
 ```
 
-Navigating to ```http://localhost:3000``` will give: 
+Navigating to `http://localhost:3000` will give:
 
 <div align="center">
 <img src="../assets/nestjs-react.png" width="800" height="550"/>
