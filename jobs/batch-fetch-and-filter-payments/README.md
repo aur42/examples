@@ -24,13 +24,13 @@ yarn
 1. Set your Sphere ApiKey in your environment variables.
 
 ```bash
-export API_KEY="secret_8b45ae882301488bba6d351863a0555c"
+export API_KEY="<SPHERE_API_KEY>"
 ```
 
 2. Set the product id that you want to filter by:
 
 ```bash
-export PRODUCT_ID="product_adg5186sad88bba6d35186dsg5c
+export PRODUCT_ID="<SPHERE_PRODUCT_ID>
 ```
 
 # Run

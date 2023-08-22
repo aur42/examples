@@ -26,7 +26,7 @@ yarn
 1. Set your Sphere ApiKey in your environment variables.
 
 ```bash
-export API_KEY="secret_8b45ae882301488bba6d351863a0555c"
+export API_KEY="<SPHERE_API_KEY>"
 ```
 
 2. Retrieve the id of the subscription that you would like to pause/resume and set it as an environment variable.

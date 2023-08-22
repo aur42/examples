@@ -22,10 +22,10 @@ yarn
 # Setup
 
 1. Create a webhook using the Sphere API or through the dashboard.
-2. Export your webhook's signingSecret or `secret` to:
+2. Reveal and export your webhook's signingSecret (found in the webhook view of the developer dashboard.)
 
 ```bash
-export SPHERE_WEBHOOK_SIGNING_SECRET="secret_8b45ae882301488bba6d351863a0555c"
+export SPHERE_WEBHOOK_SIGNING_SECRET="<SPHERE_WEBHOOK_SIGNING_SECRET>"
 ```
 
 # Development
@@ -41,4 +41,4 @@ Now you can
 1. Download [ngrok](https://ngrok.com/download) (a reverse proxy that enables you to expose your local server to the internet.),
 2. Run: `ngrok http 8080`
 3. Edit your webhook's url with the `Forwarding` url ngrok displayed in the ngrok cli.
-4. Test out the functionality by generating some events that your webhook is listening to.
+4. Test out the functionality by generating some of the events that your webhook is listening to.
