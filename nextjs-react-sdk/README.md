@@ -19,9 +19,9 @@ This repository will be useful to you if you:
 1. Don't want to use Sphere's prebuilt checkouts.
 1. Want to minimize dependencies by foregoing use of the `@spherelabs/react` library.
 
-# Setup 
+# Setup
 
-First create a paymentLink via the Sphere API or dashboard. Export your paymentLink id as an environment variable connect the payment button to your Sphere account. 
+First create a paymentLink via the Sphere API or dashboard. Export your paymentLink id as an environment variable connect the payment button to your Sphere account.
 
 ```bash
 export NEXT_PUBLIC_PAYMENT_LINK_ID="paymentLink_51ae9e9aa1684340ae969bc1b23f540d"
