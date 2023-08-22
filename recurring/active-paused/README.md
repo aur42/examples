@@ -4,14 +4,14 @@
     <a>
         <img alt="Sphere" src="https://avatars.githubusercontent.com/u/109333730?s=200&v=4" width="95"/>
     </a>
-  <h1 style="margin-top:20px;">activate</h1>
+  <h1 style="margin-top:20px;">active-paused</h1>
 </div>
 
 # Overview
 
 This repository contains an example script demonstrating basic Subscription orchestration.
 
-In particular we demonstrate, how you as a merchant would pause and resume a single subscription.
+In particular we demonstrate, how you as a merchant could "pause" and "unpause" the billing of a subscription using the subscription update endpoint.
 
 # Installation
 

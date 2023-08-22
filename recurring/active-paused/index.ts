@@ -5,7 +5,6 @@ const API_KEY = process.env.API_KEY;
 const config = { headers: { Authorization: `Bearer ${API_KEY}` } };
 
 const updateSubscription = async (subscriptionId: string, status: string) => {
-  // A paused subscription will not be billed.
   const response = await axios.post(
     `${API_URL}/subscription/${subscriptionId}`,
     {
