@@ -29,20 +29,18 @@ const updateSubscription = async (subscriptionId: string, status: string) => {
   const subscriptionId = process.env.SUBSCRIPTION_ID;
 
   const subscription = await retrieveSubscription(subscriptionId);
-  const status = subscription.status
+  const status = subscription.status;
 
   if (status == "active") {
     console.log(
       "pausedSubscription",
       await updateSubscription(subscriptionId, "paused"),
     );
-
   } else if (status == "paused") {
     console.log(
       "activeSubscription",
       await updateSubscription(subscriptionId, "active"),
     );
-
   } else {
     console.log(
       `You cannot pause or active a subscription with status: ${status}`,
