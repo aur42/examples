@@ -35,3 +35,12 @@ To start the server on port :8080 run:
 ```bash
 yarn run dev
 ```
+
+Now you can 
+
+  1. Download [ngrok](https://ngrok.com/download) (a reverse proxy that enables you to expose your local server to the internet.), 
+  2. Run: `ngrok http 8080`
+  2. Edit your webhook's url with the `Forwarding` url ngrok displayed in the ngrok cli.
+  3. Test out the functionality by generating some events that your webhook is listening to. 
+
+
