@@ -41,34 +41,32 @@ const createPrice = async (productId: string) => {
   return price;
 };
 
-const createCoupon = async() => {
-    const response = await axios.post(
-        `${API_URL}/coupon`,
-        {
-            name: "10% off",
-            percentOff: 10,
-            term: "oneTime",        },
-        config,
-    );
-    const coupon = response.data.data.coupon;
-    return coupon;
-}
+const createCoupon = async () => {
+  const response = await axios.post(
+    `${API_URL}/coupon`,
+    {
+      name: "10% off",
+      percentOff: 10,
+      term: "oneTime",
+    },
+    config,
+  );
+  const coupon = response.data.data.coupon;
+  return coupon;
+};
 
-const createPromotionCode = async(
-    couponId: string,
-    code: string,
-) => {
-    const response = await axios.post(
-        `${API_URL}/promotionCode`,
-        {
-            coupon: couponId,
-            code,
-        },
-        config,
-    )
-    const promotionCode = response.data.data.promotionCode;
-    return promotionCode;
-}
+const createPromotionCode = async (couponId: string, code: string) => {
+  const response = await axios.post(
+    `${API_URL}/promotionCode`,
+    {
+      coupon: couponId,
+      code,
+    },
+    config,
+  );
+  const promotionCode = response.data.data.promotionCode;
+  return promotionCode;
+};
 
 const createPaymentLink = async (priceId: string, couponId: string) => {
   const response = await axios.post(
@@ -90,16 +88,15 @@ const createPaymentLink = async (priceId: string, couponId: string) => {
 };
 
 (async () => {
-
-  const code = "42"
+  const code = "42";
 
   const product = await createProduct();
   const price = await createPrice(product.id);
 
   const coupon = await createCoupon();
   const promotionCode = await createPromotionCode(coupon.id, code);
-  console.log("coupon", coupon)
-  console.log("promotionCode", promotionCode)
+  console.log("coupon", coupon);
+  console.log("promotionCode", promotionCode);
 
   const paymentLink = await createPaymentLink(price.id, coupon.id);
   console.log("paymentLink", paymentLink.url);
