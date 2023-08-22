@@ -41,6 +41,12 @@ To start the server on port :3000 run:
 yarn run dev
 ```
 
+Navigating to ```http://localhost:3000``` will give: 
+
+<div align="center">
+<img src="../assets/nestjs-react.png" width="800" height="550"/>
+</div>
+
 ## Notes:
 
 Generally recommend using our react SDK, `@spherelabs/react` if it fits your use-case. Refer to `nextjs-react-sdk` for an example usage.
