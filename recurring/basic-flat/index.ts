@@ -8,7 +8,7 @@ const createProduct = async () => {
   const response = await axios.post(
     `${API_URL}/product`,
     {
-      name: "Basic Subscription Product",
+      name: "Basic Flat Subscription Product",
     },
     config,
   );
@@ -17,6 +17,7 @@ const createProduct = async () => {
 };
 
 const createPrice = async (productId: string) => {
+  // A 29.99 USDC monthly subscription w/ token approvals for 1 year.
   const response = await axios.post(
     `${API_URL}/price`,
     {
@@ -27,13 +28,11 @@ const createPrice = async (productId: string) => {
         interval: "month",
         intervalCount: 1,
         usageAggregation: "sum",
-        defaultLength: 1,
+        defaultLength: 12,
       },
       currency: "usdc",
       billingScheme: "perUnit",
-      name: "Basic Subscription Price",
-      description: "A simple description",
-      unitAmount: "5000000",
+      unitAmountDecimal: 29.99,
     },
     config,
   );
