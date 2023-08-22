@@ -11,7 +11,7 @@
 
 This repository contains an example script demonstrating basic Subscription orchestration.
 
-In particular we demonstrate, how you as a merchant could "pause" and "unpause" the billing of a subscription using the subscription update endpoint.
+It will demonstrate, how you as a merchant could "pause" and "unpause" the billing of a subscription using the subscription update endpoint.
 
 # Installation
 
@@ -42,3 +42,7 @@ To run the script:
 ```bash
 yarn run dev
 ```
+
+Observe that if your subscription is active, it will become paused. 
+
+Running the script again update the subscriptions status from "paused" to "active".
