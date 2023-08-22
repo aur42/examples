@@ -15,7 +15,7 @@ export const styles = {
   subtotal: "text-[#0F2A43]",
 };
 
-const paymentLinkId = "paymentLink_85367c449c704fff9189785ab9627a61";
+const paymentLinkId = process.env.NEXT_PUBLIC_PAYMENT_LINK_ID || "paymentLink_51ae9e9aa1684340ae969bc1b23f540d";
 
 export default function Home() {
   const { connection } = useConnection();
