@@ -17,6 +17,7 @@ const createProduct = async () => {
 };
 
 const createPrice = async (productId: string) => {
+  // Create a recurring price with a billingPeriod of 1 minute.
   const response = await axios.post(
     `${API_URL}/price`,
     {
@@ -31,9 +32,7 @@ const createPrice = async (productId: string) => {
       },
       currency: "bonk",
       billingScheme: "perUnit",
-      name: "Basic Subscription Price",
-      description: "A simple description",
-      unitAmount: "5000000",
+      unitAmountDecimal: 1,
     },
     config,
   );
@@ -41,38 +40,10 @@ const createPrice = async (productId: string) => {
   return price;
 };
 
-const createCoupon = async () => {
-  const response = await axios.post(
-    `${API_URL}/coupon`,
-    {
-      name: "10% off",
-      percentOff: 10,
-      term: "oneTime",
-    },
-    config,
-  );
-  const coupon = response.data.data.coupon;
-  return coupon;
-};
-
-const createPromotionCode = async (couponId: string, code: string) => {
-  const response = await axios.post(
-    `${API_URL}/promotionCode`,
-    {
-      coupon: couponId,
-      code,
-    },
-    config,
-  );
-  const promotionCode = response.data.data.promotionCode;
-  return promotionCode;
-};
-
-const createPaymentLink = async (priceId: string, couponId: string) => {
+const createPaymentLink = async (priceId: string) => {
   const response = await axios.post(
     `${API_URL}/paymentLink`,
     {
-      coupon: couponId,
       lineItems: [
         {
           price: priceId,
@@ -93,11 +64,6 @@ const createPaymentLink = async (priceId: string, couponId: string) => {
   const product = await createProduct();
   const price = await createPrice(product.id);
 
-  const coupon = await createCoupon();
-  const promotionCode = await createPromotionCode(coupon.id, code);
-  console.log("coupon", coupon);
-  console.log("promotionCode", promotionCode);
-
-  const paymentLink = await createPaymentLink(price.id, coupon.id);
+  const paymentLink = await createPaymentLink(price.id);
   console.log("paymentLink", paymentLink.url);
 })();
