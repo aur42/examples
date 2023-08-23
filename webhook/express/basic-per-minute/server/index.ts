@@ -12,25 +12,27 @@ export const validPayload = (req: express.Request) => {
     .update(JSON.stringify(body), "utf-8")
     .digest("hex");
   if (headers["signature"] !== signature) {
-    return true
+    return true;
   }
   return false;
-}
-
+};
 
 var jsonParser = bodyParser.json();
 
-app.post("/", jsonParser, async(req: express.Request, res: express.Response) => {
+app.post(
+  "/",
+  jsonParser,
+  async (req: express.Request, res: express.Response) => {
+    if (!validPayload(req)) {
+      res.status(500).json({ message: "Invalid Payload" });
+      return;
+    }
 
-  if (!validPayload(req)) {
-    res.status(500).json({message: "Invalid Payload"})
-    return
-  }  
-  
-  res.status(200).json({
-    message: "Message Received",
-  });
-});
+    res.status(200).json({
+      message: "Message Received",
+    });
+  },
+);
 
 app.listen(8080, () => {
   console.log(`⚪ Sphere basic-per-minute server :${8080}`);
