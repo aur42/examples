@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://api.staging.spherepay.coß/v1";
+const API_URL = "https://api.staging.spherepay.co/v1";
 const API_KEY = process.env.API_KEY;
 const config = { headers: { Authorization: `Bearer ${API_KEY}` } };
 
@@ -28,9 +28,9 @@ const createPrice = async (productId: string) => {
         interval: "min",
         intervalCount: 1,
         usageType: "licensed",
-        defaultLength: 12,
+        defaultLength: 120,
       },
-      currency: "bonk",
+      currency: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
       billingScheme: "perUnit",
       unitAmountDecimal: 1,
     },
