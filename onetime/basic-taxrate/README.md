@@ -9,7 +9,7 @@
 
 # Overview
 
-This repository contains an example script demonstrating a basic recurring flat rate pricing model. 
+This repository contains an example script demonstrating a basic recurring flat rate pricing model.
 
 # Installation
 
