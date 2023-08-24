@@ -9,10 +9,9 @@
 
 # Overview
 
-The following subdirectory contains a collection of commonly requested payout scripts. 
+The following subdirectory contains a collection of commonly requested payout scripts.
 
 # Jobs
-
 
 1. `basic-payout` - A simple payout job to register and cash out to a single bank account.
 2. `split-payout` - Split a payout into multiple bank accounts.
