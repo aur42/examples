@@ -4,13 +4,12 @@
     <a>
         <img alt="Sphere" src="https://avatars.githubusercontent.com/u/109333730?s=200&v=4" width="95"/>
     </a>
-  <h1 style="margin-top:20px;">basic-perunit</h1>
+  <h1 style="margin-top:20px;">recurring-basic-perseat</h1>
 </div>
 
 # Overview
 
-This repository contains an example script demonstrating how to create a paymentLink for a product with a
-simple `recurring` `perUnit` price.
+This repository contains an example script demonstrating a basic recurring perseat pricing model.
 
 # Installation
 
