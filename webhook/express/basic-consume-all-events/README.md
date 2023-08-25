@@ -9,7 +9,7 @@
 
 # Overview
 
-This repository contains an example express server demonstrating how you can consume and propagate all events from Sphere to your servers. 
+This repository contains an example express server demonstrating how you can consume and propagate all events from Sphere to your servers.
 
 # Installation
 

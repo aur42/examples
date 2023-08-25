@@ -20,7 +20,7 @@ const createWebhook = async () => {
       {
         name: "basic-consume-all-events",
         url: WEBHOOK_URL,
-        events: [ "*"],
+        events: ["*"],
       },
       config,
     )
