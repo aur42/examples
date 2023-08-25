@@ -17,17 +17,17 @@ const createPrice = async (data: any) => {
   return price;
 };
 
-const getRandomTaxCategory = async() => {
+const getRandomTaxCategory = async () => {
   const response = await axios.get(`${API_URL}/taxCategory`, config);
   const taxCategories = response.data.data.taxCategories;
-  return taxCategories[42]
-}
+  return taxCategories[42];
+};
 
-const createTaxRate = async(data: any) => {
-  const response = await axios.post(`${API_URL}/taxRate`, data , config)
-  const taxRate = response.data.data.taxRate
-  return taxRate
-}
+const createTaxRate = async (data: any) => {
+  const response = await axios.post(`${API_URL}/taxRate`, data, config);
+  const taxRate = response.data.data.taxRate;
+  return taxRate;
+};
 
 const createPaymentLink = async (data: any) => {
   const response = await axios.post(`${API_URL}/paymentLink`, data, config);
@@ -35,11 +35,9 @@ const createPaymentLink = async (data: any) => {
   return paymentLink;
 };
 
-
 (async () => {
-
-  const product = await createProduct({ 
-    name: "Basic Per Unit" 
+  const product = await createProduct({
+    name: "Basic Per Unit",
   });
 
   const price = await createPrice({
@@ -49,7 +47,7 @@ const createPaymentLink = async (data: any) => {
     unitAmountDecimal: 10,
   });
 
-  const taxCategory = await getRandomTaxCategory()
+  const taxCategory = await getRandomTaxCategory();
 
   const taxRate = await createTaxRate({
     taxCategory: taxCategory.id,
@@ -59,8 +57,8 @@ const createPaymentLink = async (data: any) => {
     type: "salesTax",
     percentageDecimals: 10,
     jurisdiction: "San Francisco County",
-    state: "CA"
-  })
+    state: "CA",
+  });
 
   const paymentLink = await createPaymentLink({
     lineItems: [
@@ -68,10 +66,9 @@ const createPaymentLink = async (data: any) => {
         price: price.id,
         quantity: 1,
         quantityMutable: true,
-      }
+      },
     ],
     taxRate: taxRate.id,
-  })
-  console.log("paymentLink", paymentLink.url)
-
+  });
+  console.log("paymentLink", paymentLink.url);
 })();

@@ -23,11 +23,9 @@ const createPaymentLink = async (data: any) => {
   return paymentLink;
 };
 
-
 (async () => {
-
-  const product = await createProduct({ 
-    name: "Basic Per Unit" 
+  const product = await createProduct({
+    name: "Basic Per Unit",
   });
 
   const usdcPrice = await createPrice({
@@ -50,10 +48,10 @@ const createPaymentLink = async (data: any) => {
         price: usdcPrice.id,
         quantity: 1,
         quantityMutable: true,
-      }
-    ]
-  })
-  console.log("usdcPaymentLink", usdcPaymentLink.url)
+      },
+    ],
+  });
+  console.log("usdcPaymentLink", usdcPaymentLink.url);
 
   const usdtPaymentLink = await createPaymentLink({
     lineItems: [
@@ -61,9 +59,8 @@ const createPaymentLink = async (data: any) => {
         price: usdtPrice.id,
         quantity: 1,
         quantityMutable: true,
-      }
-    ]
-  })
-  console.log("usdtPaymentLink", usdtPaymentLink.url)
-
+      },
+    ],
+  });
+  console.log("usdtPaymentLink", usdtPaymentLink.url);
 })();

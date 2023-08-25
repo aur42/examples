@@ -26,7 +26,7 @@ const createPaymentLink = async (data: any) => {
   const product = await createProduct({
     name: "Basic Usage-Based Licensed",
     description: "A basic subscription demonstrating usage based billing",
-    images: ["https://spherepay.co/favicon.ico"]
+    images: ["https://spherepay.co/favicon.ico"],
   });
 
   const price = await createPrice({

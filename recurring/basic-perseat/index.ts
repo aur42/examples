@@ -23,8 +23,8 @@ const createPaymentLink = async (data: any) => {
 };
 
 (async () => {
-  const product = await createProduct({ 
-    name: "Basic Seated Per Month" 
+  const product = await createProduct({
+    name: "Basic Seated Per Month",
   });
 
   const price = await createPrice({
