@@ -24,7 +24,9 @@ const createPaymentLink = async (data: any) => {
 
 (async () => {
   const product = await createProduct({
-    name: "Basic Licensed Subscription Product",
+    name: "Metered Usage Recurring Product",
+    description: "A simple example demonstrating a metered usage recurring product.",
+    images: ["https://spherepay.co/favicon.ico"]
   });
 
   const price = await createPrice({
@@ -38,6 +40,8 @@ const createPaymentLink = async (data: any) => {
       interval: "min",
       intervalCount: 1,
       defaultLength: 120,
+      usageType: "metered",
+      usageAggregate: "sum",
     },
   });
 

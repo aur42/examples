@@ -31,9 +31,31 @@ const createPaymentLink = async (data: any) => {
 
   const price = await createPrice({
     product: product.id,
-    billingScheme: "perUnit",
     currency: "bonk",
-    unitAmountDecimal: 10,
+    billingScheme: "tiered",
+    tierType: "graduated",
+    tiers: [
+      {
+        upTo: 1,
+        flatAmountDecimal: 0,
+        unitAmountDecimal: 10,
+      },
+      {
+        upTo: 2,
+        flatAmountDecimal: 0,
+        unitAmountDecimal: 5,
+      },
+      {
+        upTo: 3,
+        flatAmountDecimal: 0,
+        unitAmountDecimal: 2.5,
+      },
+      {
+        upTo: "inf",
+        flatAmountDecimal: 0,
+        unitAmountDecimal: 1,
+      }
+    ],
     type: "recurring",
     recurring: {
       usageType: "licensed",

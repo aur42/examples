@@ -23,117 +23,47 @@ const createPaymentLink = async (data: any) => {
   return paymentLink;
 };
 
-// Basic Product
-const createBasicProduct = async () => {
-  const product = await createProduct({ name: "Basic" });
-  // $10 usdc per month
-  await createPrice({
+
+(async () => {
+
+  const product = await createProduct({ 
+    name: "Basic Per Unit" 
+  });
+
+  const usdcPrice = await createPrice({
     product: product.id,
     billingScheme: "perUnit",
     currency: "usdc",
     unitAmountDecimal: 10,
-    type: "recurring",
-    recurring: {
-      type: "delegated",
-      interval: "month",
-      intervalCount: 1,
-      defaultLength: 12,
-    },
   });
-  // $100 usd per year
-  await createPrice({
+
+  const usdtPrice = await createPrice({
     product: product.id,
     billingScheme: "perUnit",
     currency: "usdc",
-    unitAmountDecimal: 100,
-    type: "recurring",
-    recurring: {
-      type: "delegated",
-      interval: "year",
-      intervalCount: 1,
-      defaultLength: 1,
-    },
+    unitAmountDecimal: 10,
   });
-  return product;
-};
 
-// Starter Product
-const createStarterProduct = async () => {
-  const product = await createProduct({ name: "Starter" });
-  // $20 usdc per month
-  await createPrice({
-    product: product.id,
-    billingScheme: "perUnit",
-    currency: "usdc",
-    unitAmountDecimal: 20,
-    type: "recurring",
-    recurring: {
-      type: "delegated",
-      interval: "month",
-      intervalCount: 1,
-      defaultLength: 12,
-    },
-  });
-  // $200 usdc per year
-  await createPrice({
-    product: product.id,
-    billingScheme: "perUnit",
-    currency: "usdc",
-    unitAmountDecimal: 200,
-    type: "recurring",
-    recurring: {
-      type: "delegated",
-      interval: "year",
-      intervalCount: 1,
-      defaultLength: 1,
-    },
-  });
-  return product;
-};
+  const usdcPaymentLink = await createPaymentLink({
+    lineItems: [
+      {
+        price: usdcPrice.id,
+        quantity: 1,
+        quantityMutable: true,
+      }
+    ]
+  })
+  console.log("usdcPaymentLink", usdcPaymentLink.url)
 
-// Enterprise Product
-const createEnterpriseProduct = async () => {
-  const product = await createProduct({ name: "Enterprise" });
-  // $30 usdc per year
-  await createPrice({
-    product: product.id,
-    billingScheme: "perUnit",
-    currency: "usdc",
-    unitAmountDecimal: 75,
-    type: "recurring",
-    recurring: {
-      type: "delegated",
-      interval: "month",
-      intervalCount: 1,
-      defaultLength: 12,
-    },
-  });
-  // $300 usdc per year
-  await createPrice({
-    product: product.id,
-    billingScheme: "perUnit",
-    currency: "usdc",
-    unitAmountDecimal: 850,
-    type: "recurring",
-    recurring: {
-      type: "delegated",
-      interval: "year",
-      intervalCount: 1,
-      defaultLength: 1,
-    },
-  });
-  return product;
-};
+  const usdtPaymentLink = await createPaymentLink({
+    lineItems: [
+      {
+        price: usdtPrice.id,
+        quantity: 1,
+        quantityMutable: true,
+      }
+    ]
+  })
+  console.log("usdtPaymentLink", usdtPaymentLink.url)
 
-(async () => {
-  const basicProduct = await createBasicProduct();
-  console.log(`Created ${basicProduct.id} with name: ${basicProduct.name}`);
-
-  const starterProduct = await createStarterProduct();
-  console.log(`Created ${starterProduct.id} with name: ${starterProduct.name}`);
-
-  const enterpriseProduct = await createEnterpriseProduct();
-  console.log(
-    `Created ${enterpriseProduct.id} with name: ${enterpriseProduct.name}`,
-  );
 })();
