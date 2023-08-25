@@ -32,7 +32,7 @@ export API_KEY="<SPHERE_API_KEY>"
 2. Retrieve the id of the subscription that you would like to pause/resume and set it as an environment variable.
 
 ```bash
-export SUBSCRIPTION_ID="subscription_adg5186sad88bba6d35186dsg5c
+export SUBSCRIPTION_ID="subscription_adg5186sad88bba6d35186dsg5c"
 ```
 
 # Run

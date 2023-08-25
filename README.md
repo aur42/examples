@@ -23,3 +23,4 @@ This repository contains a collection of technical examples using Sphere's APIs 
 2. `nestjs-react` - A collection of Nextjs example apps demonstrating how to integrate Sphere into your webapps.
 3. `recurring` - A collection of commonly used recurring payment scripts.
 4. `webhook-signing` - Verify Sphere webhook event payloads via `hmac` signature verification.
+5. `payouts` - A collection of commonly requested payout scripts.
