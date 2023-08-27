@@ -9,19 +9,21 @@
 
 # Overview
 
-This repository contains an example Nextjs app, demonstrating how to use the `@spherelabs/react` sdk to orchestrate payments via a series of easy to use react hooks.
+This repository contains an example Next.js app, demonstrating how to use the `@spherelabs/react` SDK to orchestrate payments via a series of easy-to-use React hooks.
 
-how to natively embed a Sphere payment button into your web app.
+Specifically, it shows how to natively embed a Sphere payment button into your web app.
 
 This repository will be useful to you if you:
 
-1. Want to build your own custom payment pages or embed a pay button into your application
-1. Don't want to use Sphere's prebuilt checkouts.
+1. Want to build your own custom payment pages, or embed a pay button into your application.
+1. Don't want to use Sphere's pre-built checkout pages.
 1. Want to minimize dependencies by foregoing use of the `@spherelabs/react` library.
 
 # Setup
 
-First create a paymentLink via the Sphere API or dashboard. Export your paymentLink id as an environment variable connect the payment button to your Sphere account.
+First, create a payment method (e.g., payment link) via the Sphere API or dashboard. 
+
+Export your payment link's `id` as an environment variable to connect the payment button to your Sphere account.
 
 ```bash
 export NEXT_PUBLIC_PAYMENT_LINK_ID="paymentLink_51ae9e9aa1684340ae969bc1b23f540d"
@@ -37,7 +39,7 @@ yarn
 
 # Development
 
-To start the server on port :3000 run:
+To start the server on port:3000 run:
 
 ```bash
 yarn run dev
